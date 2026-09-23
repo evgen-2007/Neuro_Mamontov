@@ -6,87 +6,17 @@
     <meta name="description" content="Каталог класифікацій неврологічних захворювань за міжнародними стандартами">
     <title>НейроДовідник — Каталог класифікацій неврологічних захворювань</title>
     <link rel="stylesheet" href="styles/style.css">
-    <style>
-        /* Темно-синя шапка та підвал із білим текстом */
-        .site-header, footer {
-            background-color: #1e3a8a;
-            color: #ffffff;
-        }
-        .site-header {
-            border-bottom: 1px solid #1e40af;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .brand-title, .site-nav a {
-            color: #ffffff !important;
-            text-decoration: none;
-        }
-        .site-nav a:hover {
-            color: #93c5fd !important;
-            text-decoration: underline;
-        }
-        .header-search input[type="search"] {
-            background-color: #172554;
-            color: #ffffff;
-            border: 1px solid #3b82f6;
-            padding: 0.5rem 0.9rem;
-            border-radius: 6px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .header-search input[type="search"]:focus {
-            border-color: #60a5fa;
-            box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
-        }
-        .header-search input[type="search"]::placeholder {
-            color: #94a3b8;
-        }
-
-        /* Інтерактивні ефекти для карток */
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.15);
-        }
-
-        /* Клас для приховування карток при пошуку */
-        .card.hidden {
-            display: none;
-        }
-
-        /* Повідомлення про відсутність результатів */
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 1.1rem;
-            display: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid #1e40af;
-            margin-top: 3rem;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Шапка сайту з навігацією та єдиним полем пошуку -->
+    <!-- Шапка сайту з логотипом, навігацією та пошуком -->
     <header class="site-header">
         <div class="header-container">
-            
-            <div class="site-brand">
-                <a href="index.html" class="brand-title">Клінічний довідник: Неврологія</a>
-            </div>
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Логотип НейроДовідник" class="site-logo">
+                <span class="brand-title">Клінічний довідник: Неврологія</span>
+            </a>
 
-            <!-- Виправлені посилання для багатосторінкової структури -->
             <nav class="site-nav" aria-label="Основне меню">
                 <ul>
                     <li><a href="index.html">Головна</a></li>
@@ -96,14 +26,14 @@
                 </ul>
             </nav>
 
-            <!-- Інтерактивне поле пошуку -->
+            <!-- Інтерактивне поле пошуку тепер всередині єдиного flex-контейнера -->
             <div class="header-search">
                 <input type="search" id="searchInput" placeholder="Шукати діагноз чи код..." aria-label="Швидкий пошук по довіднику">
             </div>
-
         </div>
     </header>
 
+    <!-- Основний вміст -->
     <main>
         <section id="catalog">
             <h2>Класи неврологічних захворювань</h2>
@@ -231,6 +161,7 @@
         </section>
     </main>
 
+    <!-- Футер сайту -->
     <footer>
         <p>&copy; 2026 НейроДовідник. Навчальний семестровий проєкт.</p>
     </footer>
@@ -255,7 +186,6 @@
                 }
             });
 
-            // Показуємо або ховаємо повідомлення про відсутність результатів
             if (visibleCount === 0) {
                 noResults.style.display = 'block';
             } else {
