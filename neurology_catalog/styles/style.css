@@ -1,144 +1,181 @@
 /* ==========================================
-   Базові стилі та притискання футера (Sticky Footer)
+   Базові стилі та Sticky Footer
    ========================================== */
-html, body {
-    height: 100%; /* Займаємо всю висоту екрана */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    color: #333;
-    background-color: #f4f7f6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
     display: flex;
-    flex-direction: column; /* Вибудовуємо елементи (шапка -> контент -> футер) у колонку */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ==========================================
-   Шапка
+   Шапка сайту (Header) - зафіксована в один ряд
    ========================================== */
-.site-header {
+header.site-header {
     background-color: #1e3a8a;
-    border-bottom: 1px solid #1e40af;
+    color: #ffffff;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #1e40af;
 }
 
 .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0 1rem;
+    gap: 0.75rem;
+    flex-wrap: nowrap; /* Жорстко забороняємо переноси */
+}
+
+/* Логотип та назва */
+.logo-link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 0.5rem;
+    text-decoration: none;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.site-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .brand-title {
-    text-decoration: none;
-    font-size: 1.15rem;
+    color: #ffffff !important;
+    font-size: 0.95rem;
     font-weight: bold;
-    color: #ffffff;
-    transition: color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
 }
 
-.brand-title:hover {
-    color: #93c5fd;
+/* Навігація */
+.site-nav {
+    flex-shrink: 0;
 }
 
 .site-nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 0.85rem;
     margin: 0;
     padding: 0;
 }
 
 .site-nav a {
+    color: #ffffff !important;
     text-decoration: none;
-    color: #ffffff;
+    font-size: 0.9rem;
     font-weight: 500;
+    white-space: nowrap;
     transition: color 0.2s;
 }
 
 .site-nav a:hover {
-    color: #93c5fd;
+    color: #93c5fd !important;
+    text-decoration: underline;
 }
 
-.header-search input {
-    padding: 0.5rem 1rem;
+/* Пошук у шапці */
+.header-search {
+    flex-shrink: 0;
+}
+
+.header-search input[type="search"] {
     background-color: #172554;
     color: #ffffff;
     border: 1px solid #3b82f6;
+    padding: 0.35rem 0.65rem;
     border-radius: 6px;
     outline: none;
-    font-size: 0.9rem;
-    width: 200px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    font-size: 0.85rem;
+    width: 185px;
+    transition: all 0.3s ease;
 }
 
-.header-search input::placeholder {
+.header-search input[type="search"]:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    width: 160px;
+}
+
+.header-search input[type="search"]::placeholder {
     color: #94a3b8;
 }
 
-.header-search input:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
-}
-
 /* ==========================================
-   Основний вміст (розтягується, якщо тексту мало)
+   Основний вміст (Main)
    ========================================== */
 main {
-    flex: 1; /* Головний секрет: займає весь вільний простір між шапкою та футером */
+    flex: 1;
     width: 100%;
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     box-sizing: border-box;
 }
 
-.filters {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+main h2 {
+    font-size: 1.75rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
-/* ==========================================
-   Сітка каталогу та картки
-   ========================================== */
+/* Адаптивна сітка для карток */
 .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
 }
 
+/* Стилі для карток */
 .card {
-    background: #fff;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -3px rgba(30, 58, 138, 0.12);
 }
 
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .card-content {
@@ -149,27 +186,65 @@ main {
 }
 
 .card h3 {
-    margin-top: 0;
+    margin: 0 0 0.5rem 0;
     color: #0f172a;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: #475569;
+    font-size: 0.92rem;
+    margin-bottom: 0.75rem;
 }
 
 .card ul {
-    margin: 0.5rem 0 1rem 1.2rem;
+    margin: 0 0 1.25rem 1.25rem;
     padding: 0;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.card ul li {
+    margin-bottom: 0.25rem;
 }
 
 .card-meta {
-    margin-top: auto;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #64748b;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #e2e8f0;
-    padding-top: 0.75rem;
+    align-items: center;
+    margin-top: auto;
+    background-color: #f8fafc;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.card-meta data {
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.card.hidden {
+    display: none !important;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+    display: none;
 }
 
 /* ==========================================
-   Футер (завжди знизу)
+   Футер сайту (Footer)
    ========================================== */
 footer {
     background-color: #1e3a8a;
@@ -177,5 +252,28 @@ footer {
     text-align: center;
     padding: 1.5rem;
     border-top: 1px solid #1e40af;
-    margin-top: auto; /* Надійне притискання вниз */
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Медіа-запити для мобільних пристроїв */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .site-nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-search input[type="search"] {
+        width: 100%;
+        max-width: 300px;
+    }
 }
