@@ -1,25 +1,31 @@
 /* ==========================================
-   Базові стилі та скидання
+   Базові стилі та притискання футера (Sticky Footer)
    ========================================== */
+html, body {
+    height: 100%; /* Займаємо всю висоту екрана */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
-    margin: 0;
-    padding: 0;
     color: #333;
     background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column; /* Вибудовуємо елементи (шапка -> контент -> футер) у колонку */
 }
 
 /* ==========================================
-   Шапка та футер
+   Шапка
    ========================================== */
 .site-header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #1e3a8a;
+    border-bottom: 1px solid #1e40af;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -30,18 +36,19 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .brand-title {
     text-decoration: none;
     font-size: 1.15rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
     transition: color 0.2s;
 }
 
 .brand-title:hover {
-    color: #3498db;
+    color: #93c5fd;
 }
 
 .site-nav ul {
@@ -54,36 +61,46 @@ body {
 
 .site-nav a {
     text-decoration: none;
-    color: #34495e;
+    color: #ffffff;
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .site-nav a:hover {
-    color: #3498db;
+    color: #93c5fd;
 }
 
 .header-search input {
     padding: 0.5rem 1rem;
-    border: 1px solid #cbd5e1;
+    background-color: #172554;
+    color: #ffffff;
+    border: 1px solid #3b82f6;
     border-radius: 6px;
     outline: none;
     font-size: 0.9rem;
     width: 200px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.header-search input::placeholder {
+    color: #94a3b8;
 }
 
 .header-search input:focus {
-    border-color: #3498db;
+    border-color: #60a5fa;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 /* ==========================================
-   Основний вміст
+   Основний вміст (розтягується, якщо тексту мало)
    ========================================== */
 main {
+    flex: 1; /* Головний секрет: займає весь вільний простір між шапкою та футером */
+    width: 100%;
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .filters {
@@ -149,4 +166,16 @@ main {
     justify-content: space-between;
     border-top: 1px solid #e2e8f0;
     padding-top: 0.75rem;
+}
+
+/* ==========================================
+   Футер (завжди знизу)
+   ========================================== */
+footer {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid #1e40af;
+    margin-top: auto; /* Надійне притискання вниз */
 }
