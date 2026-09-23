@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Інформація про навчальний проєкт НейроДовідник">
+    <title>Про проєкт — НейроДовідник</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* Темно-синя шапка та підвал із білим текстом */
+        .site-header, footer {
+            background-color: #1e3a8a;
+            color: #ffffff;
+        }
+        .site-header {
+            border-bottom: 1px solid #1e40af;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-title, .site-nav a {
+            color: #ffffff !important;
+            text-decoration: none;
+        }
+        .site-nav a:hover {
+            color: #93c5fd !important;
+            text-decoration: underline;
+        }
+        /* Стилі для контенту сторінки "Про проєкт" */
+        .about-content {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+        .about-content h1 {
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #1e40af;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту з навігацією -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-brand">
+                <a href="index.html" class="brand-title">Клінічний довідник: Неврологія</a>
+            </div>
+
+            <nav class="site-nav" aria-label="Основне меню">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="index.html#catalog">Класифікації</a></li>
+                    <li><a href="about.html">Про проєкт</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="about-content">
+            <h1>Про навчальний проєкт</h1>
+            <p><strong>«НейроДовідник»</strong> — це спеціалізований клінічний каталог, розроблений як семестровий проєкт для систематизації та зручного пошуку інформації за міжнародними стандартами класифікації неврологічних захворювань (МКХ-10).</p>
+            <p>Мета проєкту — створити швидкий, інтуїтивно зрозумілий інструмент для орієнтації в нозологіях центральної та периферичної нервової системи, судинних патологіях, нейродегенеративних процесах та інших станах.</p>
+            <p>Сайт створено з використанням сучасних вебтехнологій (HTML5, CSS3, JavaScript) з акцентом на доступність, адаптивність та швидкість роботи.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 НейроДовідник. Навчальний семестровий проєкт.</p>
+    </footer>
+
+</body>
+</html>

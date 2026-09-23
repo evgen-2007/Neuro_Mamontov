@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактна інформація розробника проєкту НейроДовідник">
+    <title>Контакти — НейроДовідник</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* Темно-синя шапка та підвал із білим текстом */
+        .site-header, footer {
+            background-color: #1e3a8a;
+            color: #ffffff;
+        }
+        .site-header {
+            border-bottom: 1px solid #1e40af;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-title, .site-nav a {
+            color: #ffffff !important;
+            text-decoration: none;
+        }
+        .site-nav a:hover {
+            color: #93c5fd !important;
+            text-decoration: underline;
+        }
+        /* Стилі для контенту сторінки "Контакти" */
+        .contacts-content {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+        .contacts-content h1 {
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .contacts-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .contact-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        .contact-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-box li {
+            margin-bottom: 0.8rem;
+        }
+        .contact-box a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #1e40af;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту з навігацією -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-brand">
+                <a href="index.html" class="brand-title">Клінічний довідник: Неврологія</a>
+            </div>
+
+            <nav class="site-nav" aria-label="Основне меню">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="index.html#catalog">Класифікації</a></li>
+                    <li><a href="about.html">Про проєкт</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contacts-content">
+            <h1>Контакти</h1>
+            <p>Якщо у вас є пропозиції щодо покращення довідника, виявлені неточності в класифікаціях чи інші питання, ви можете зв'язатися з розробником.</p>
+            
+            <div class="contact-box">
+                <ul>
+                    <li><strong>Розробник:</strong> Мамонтов Євген Олександрович</li>
+                    <li><strong>Навчальний заклад:</strong> Сумський державний університет (СумДУ)</li>
+                    <li><strong>Електронна пошта:</strong> <a href="mailto:mamontovevgen2007@gmail.com">mamontovevgen2007@gmail.com</a></li>
+                    <li><strong>GitHub репозиторій:</strong> <a href="#" target="_blank">https://github.com/evgen-2007/Neuro_Mamontov.git</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 НейроДовідник. Навчальний семестровий проєкт.</p>
+    </footer>
+
+</body>
+</html>

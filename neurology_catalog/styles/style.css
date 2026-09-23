@@ -1,0 +1,152 @@
+/* ==========================================
+   Базові стилі та скидання
+   ========================================== */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f7f6;
+}
+
+/* ==========================================
+   Шапка та футер
+   ========================================== */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.brand-title {
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #2c3e50;
+    transition: color 0.2s;
+}
+
+.brand-title:hover {
+    color: #3498db;
+}
+
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #34495e;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.site-nav a:hover {
+    color: #3498db;
+}
+
+.header-search input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: border-color 0.2s;
+}
+
+.header-search input:focus {
+    border-color: #3498db;
+}
+
+/* ==========================================
+   Основний вміст
+   ========================================== */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.filters {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   Сітка каталогу та картки
+   ========================================== */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+.card ul {
+    margin: 0.5rem 0 1rem 1.2rem;
+    padding: 0;
+}
+
+.card-meta {
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 0.75rem;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог класифікацій неврологічних захворювань за міжнародними стандартами">
+    <title>НейроДовідник — Каталог класифікацій неврологічних захворювань</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        /* Темно-синя шапка та підвал із білим текстом */
+        .site-header, footer {
+            background-color: #1e3a8a;
+            color: #ffffff;
+        }
+        .site-header {
+            border-bottom: 1px solid #1e40af;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-title, .site-nav a {
+            color: #ffffff !important;
+            text-decoration: none;
+        }
+        .site-nav a:hover {
+            color: #93c5fd !important;
+            text-decoration: underline;
+        }
+        .header-search input[type="search"] {
+            background-color: #172554;
+            color: #ffffff;
+            border: 1px solid #3b82f6;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .header-search input[type="search"]:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+        }
+        .header-search input[type="search"]::placeholder {
+            color: #94a3b8;
+        }
+
+        /* Інтерактивні ефекти для карток */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.15);
+        }
+
+        /* Клас для приховування карток при пошуку */
+        .card.hidden {
+            display: none;
+        }
+
+        /* Повідомлення про відсутність результатів */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #1e40af;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту з навігацією та єдиним полем пошуку -->
+    <header class="site-header">
+        <div class="header-container">
+            
+            <div class="site-brand">
+                <a href="index.html" class="brand-title">Клінічний довідник: Неврологія</a>
+            </div>
+
+            <!-- Виправлені посилання для багатосторінкової структури -->
+            <nav class="site-nav" aria-label="Основне меню">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="index.html#catalog">Класифікації</a></li>
+                    <li><a href="about.html">Про проєкт</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <!-- Інтерактивне поле пошуку -->
+            <div class="header-search">
+                <input type="search" id="searchInput" placeholder="Шукати діагноз чи код..." aria-label="Швидкий пошук по довіднику">
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section id="catalog">
+            <h2>Класи неврологічних захворювань</h2>
+            
+            <div class="catalog-grid" id="catalogGrid">
+                
+                <!-- Картка 1 -->
+                <article class="card">
+                    <img src="Asset/1_img.jpg" alt="МРТ знімок головного мозку при судинній патології">
+                    <div class="card-content">
+                        <h3>Судинні захворювання нервової системи</h3>
+                        <p>Патології, спричинені гострими або хронічними порушеннями мозкового кровообігу.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Ішемічний інсульт</li>
+                            <li>Геморагічний інсульт</li>
+                            <li>Транзиторна ішемічна атака</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="I60-I69">I60–I69</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 2 -->
+                <article class="card">
+                    <img src="Asset/2_img.jpg" alt="Схематичне зображення нейродегенеративного процесу">
+                    <div class="card-content">
+                        <h3>Нейродегенеративні захворювання</h3>
+                        <p>Прогресуючі захворювання, що супроводжуються загибеллю нервових клітин.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Хвороба Альцгеймера</li>
+                            <li>Хвороба Паркінсона</li>
+                            <li>Хвороба Гантінгтона</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="G30-G32">G30–G32</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 3 -->
+                <article class="card">
+                    <img src="Asset/3_img.jpeg" alt="МРТ-сканування з вогнищами демієлінізації">
+                    <div class="card-content">
+                        <h3>Демієлінізуючі захворювання</h3>
+                        <p>Стани, за яких руйнується мієлінова оболонка нервових волокон центральної нервової системи.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Розсіяний склероз</li>
+                            <li>Гострий розсіяний енцефаломієліт</li>
+                            <li>Оптиконевромієліт</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="G35-G37">G35–G37</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 4 -->
+                <article class="card">
+                    <img src="Asset/4_img.png" alt="Електроенцефалограма з параксизмальною активністю">
+                    <div class="card-content">
+                        <h3>Пароксизмальні та епізодичні розлади</h3>
+                        <p>Група захворювань, що характеризуються раптовими нападними станами різного походження.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Епілепсія</li>
+                            <li>Мігрень та головний біль напруги</li>
+                            <li>Розлади сну (сомнологія)</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="G40-G47">G40–G47</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 5 -->
+                <article class="card">
+                    <img src="Asset/5_img.jpg" alt="Візуалізація запальних процесів ЦНС">
+                    <div class="card-content">
+                        <h3>Інфекційні захворювання ЦНС</h3>
+                        <p>Ураження головного та спинного мозку, спричинені бактеріями, вірусами чи іншими агентами.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Бактеріальний менінгіт</li>
+                            <li>Кліщовий енцефаліт</li>
+                            <li>Нейросифіліс</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="A00-B99">A00–B99</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 6 -->
+                <article class="card">
+                    <img src="Asset/6_img.jpg" alt="Знімок при черепно-мозковій травмі"> 
+                    <div class="card-content"> 
+                        <h3>Травматичні ураження ЦНС</h3>
+                        <p>Механічні пошкодження черепа, головного мозку та їхніх оболонок різного ступеня тяжкості.</p>
+                        <p><strong>Приклади нозологій:</strong></p>
+                        <ul>
+                            <li>Струс головного мозку</li>
+                            <li>Забій головного мозку</li>
+                            <li>Субарахноїдальний крововилив травматичний</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span>Код МКХ-10: <data value="S06-S09">S06–S09</data></span>
+                            <span>Оновлено: <time datetime="2026-09-23">23.09.2026</time></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Повідомлення, якщо нічого не знайдено -->
+                <div class="no-results" id="noResults">За вашим запитом нічого не знайдено. Спробуйте змінити пошуковий ключ.</div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 НейроДовідник. Навчальний семестровий проєкт.</p>
+    </footer>
+
+    <!-- Інтерактивний скрипт для миттєвого пошуку -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Показуємо або ховаємо повідомлення про відсутність результатів
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
