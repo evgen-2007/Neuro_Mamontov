@@ -1,44 +1,43 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Створюємо елемент пошуку динамічно в секції фільтрів
-    const filtersSection = document.getElementById('filters');
-    
-    if (filtersSection) {
-        const searchWrapper = document.div || document.createElement('div');
-        searchWrapper.className = 'search-box';
-        searchWrapper.style.marginTop = '15px';
-        
-        searchWrapper.innerHTML = `
-            <input type="text" id="searchInput" placeholder="Шукати захворювання або код..." style="padding: 8px 12px; width: 100%; max-width: 300px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        `;
-        filtersSection.appendChild(searchWrapper);
+document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contactForm"); 
 
-        // Логіка фільтрації карток у реальному часі
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
+    if (contactForm) {
+        contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault(); // Зупиняємо стандартну перезавантаження сторінки
 
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+            // Збираємо дані відповідно до того, що чекає python-сервер
+            const formData = {
+                name: document.getElementById("name").value,       // id поля імені
+                email: document.getElementById("email").value,     // id поля email
+                message: document.getElementById("message").value, // id поля повідомлення
+                date: new Date().toISOString()                     // поточна дата
+            };
 
-            cards.forEach(card => {
-                const textContent = card.textContent.toLowerCase();
-                if (textContent.includes(query)) {
-                    card.style.display = 'flex'; // або ''; залежить від твого CSS (grid/flex)
+            //хмарна адреса бекенду на Render
+            const BACKEND_URL = "https://neuro-mamontov.onrender.com";
+
+            try {
+                // Звертаємося чітко на ваш маршрут /api/report
+                const response = await fetch(`${BACKEND_URL}/api/report`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert("Повідомлення успішно надіслано!");
+                    contactForm.reset(); // Очищуємо поля форми
                 } else {
-                    card.style.display = 'none';
+                    alert("Помилка: " + (result.message || "Спробуйте пізніше."));
                 }
-            });
+            } catch (error) {
+                console.error("Помилка мережі:", error);
+                alert("Не вдалося зв'язатися з сервером. Перевірте підключення.");
+            }
         });
     }
-
-    // Додаємо невеликий ефект підсвічування карток при наведенні або кліку
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-4px)';
-            card.style.transition = 'transform 0.2s ease';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
 });
