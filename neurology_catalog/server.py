@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-CORS(app)  # Дозволяємо крос-доменні запити з вашого сайту
+CORS(app)  # Дозволяємо крос-доменні запити з сайту
 
 # --- НАЛАШТУВАННЯ БАЗИ ДАНИХ SQL ---
 # Використовуємо SQLite (створить файл neuro_guide.db у папці проєкту, без зайвих налаштувань MySQL)
@@ -23,8 +23,8 @@ class ReportMessage(db.Model):
     date = db.Column(db.String(50))
 
 # --- НАЛАШТУВАННЯ TELEGRAM БОТА (для сповіщень) ---
-TELEGRAM_BOT_TOKEN = '8676456518:AAH6roQ2sLCQlrEWrEt7OuuKDxIRUXxUWgY'  # Ваш токен від @BotFather
-YOUR_TELEGRAM_CHAT_ID = '7715584230'  # Ваш числовий ID в Telegram
+TELEGRAM_BOT_TOKEN = '8676456518:AAH6roQ2sLCQlrEWrEt7OuuKDxIRUXxUWgY'  #токен від @BotFather
+YOUR_TELEGRAM_CHAT_ID = '7715584230'  # числовий ID в Telegram
 
 
 def send_telegram_notification(name, email, message):
@@ -87,7 +87,7 @@ def handle_report():
         except Exception as file_error:
             print(f"[КРИТИЧНО] Не вдалося зберегти навіть у файл: {file_error}")
 
-    # Відправляємо сповіщення вам у Telegram
+    # Відправляємо сповіщення у Telegram
     send_telegram_notification(name, email, message)
 
     # Повертаємо клієнту успішну відповідь
