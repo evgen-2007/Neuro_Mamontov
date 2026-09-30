@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const BACKEND_URL = "https://neuro-mamontov.onrender.com";
 
             try {
-                // Звертаємося чітко на ваш маршрут /api/report
+                // Звертаємося чітко на маршрут /api/report
                 const response = await fetch(`${BACKEND_URL}/api/report`, {
                     method: "POST",
                     headers: {
